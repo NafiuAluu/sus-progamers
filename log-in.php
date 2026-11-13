@@ -31,10 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($hashed_password_from_db);
         $stmt->fetch();
 
-        // Debugging output
-        echo "Hashed Password from DB: " . htmlspecialchars($hashed_password_from_db) . "<br>";
-        echo "Password entered: " . htmlspecialchars($entered_password) . "<br>";
-
         // Verify the password
         if (password_verify($entered_password, $hashed_password_from_db)) {
             // Password is correct, set session variables
