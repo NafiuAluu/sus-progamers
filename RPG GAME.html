@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-image: url(smh2.gif);
+            background-size: cover;
+            background-position: center;
+             */
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            /* left: 0; */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the entire area */
+            z-index: -1; /* Places the video behind other content */
+        }
+
+        header {
+            /* background: #000000; */
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+            border: solid purple;
+            border-radius: 5px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(100, 13, 122, 0.5);
+            border-radius: 0px;
+        }
+
+        main {
+            padding: 20px;
+        }
+        .featured-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 4080px; /* Adjust as needed */
+            max-height: 800px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .featured-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .featured-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .featured-slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .fcaption {
+            position: absolute;
+            top: 10px; /* Position from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center adjustment */
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .fcaption1 {
+            position: absolute;
+            top: 0px; /* Position from the top */
+            left: 15%; /* Center horizontally */
+            transform: translateX(-50%); /* Center adjustment */
+            /* background-color: rgba(0, 0, 0, 0.7); */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 60px;
+            text-align: center;
+        }
+        .title {
+            text-align: center;
+            color: rgb(0, 60, 255);
+            text-shadow: 2px 2px 4px rgb(255, 255, 255);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-size: 1.1em;
+        }
+        p:hover {
+            background-color:rgba(100, 13, 122, 0.5);
+            transition: background-color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+        .solo-leveling {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 720px; /* Adjust as needed */
+            max-height: 360px;
+            overflow: hidden;
+            margin: auto;
+            margin-bottom: 20px; /* Add space below the slideshow */
+        }
+        .solo-levelings {
+            display: none; /* Hide all images by default */
+            transition: opacity 0.5s ease-in-out;
+        }
+        .solo-levelings.active {
+            display: block; /* Show the active image */
+        }
+        .solo-leveling img {
+            width: 100%;
+            display: block;
+        }
+        .solo-caption {
+            position: absolute;
+            top: 10px; /* Position from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center adjustment */
+            /* background-color: rgba(0, 0, 0, 0.7); */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .video-container {
+            display: none; /* Hide video by default */
+            text-align: center;
+            margin-top: 20px;
+        }
+        .video-container.active {
+            display: block; /* Show video when active */
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2; /* Ensure buttons are above slides */
+        }
+        .prev {
+            left: 10px; /* Position to the left */
+        }
+        .next {
+            right: 10px; /* Position to the right */
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(100, 13, 122, 0.7);
+        }
+        article {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        article h3 {
+            margin: 0;
+        }
+
+        article p {
+            color: #fffbfb;
+        }
+
+        article a {
+            color: #fa2500;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            /* background: #333; */
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-buttons button {
+            background-color: rgba(100, 13, 122, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-buttons button:hover {
+            background-color: #000000;
+        }
+        .post {
+            /* background: #fff; */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(247, 247, 247);
+        }
+
+        .post h2 {
+            margin-top: 0;
+            color: white;
+        }
+        .button-container {
+            display: flex; /* Use flexbox for alignment */
+            justify-content: center; /* Center the button horizontally */
+            margin-top: 10px; /* Space above the button */
+        }
+        .share-button {
+            display: inline-block; /* Make it behave like a button */
+            background-color: rgba(100, 13, 122, 1); /* Background color */
+            color: white; /* Text color */
+            padding: 10px 25px; /* Padding for size */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            font-size: 1.2em; /* Increase font size */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        .share-button:hover {
+            background-color: rgb(0, 0, 0); /* Darker on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .share-title {
+            font-size: 2.5em; /* Increase font size */
+            color: rgb(255, 0, 0); /* Gold color for contrast */
+            text-shadow: 3px 3px 6px rgb(255, 255, 255); /* Add shadow for depth */
+            text-align: center; /* Center the text */
+            margin: 20px 0; /* Add some margin for spacing */
+            font-weight: bold; /* Make the text bold */
+            /* background: rgba(0, 0, 0, 0.5); Optional: Add a semi-transparent background */
+            padding: 10px; /* Add padding around the text */
+            border-radius: 5px; /* Rounded corners for the background */
+        }
+        .welcome-message {
+            color: white; /* Text color */
+            margin-right: 10px; /* Space to the right */
+            font-size: 1.2em; /* Adjust font size as needed */
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.8), /* White glow */
+                0 0 10px rgba(255, 255, 255, 0.6), /* Larger white glow */
+                0 0 15px rgba(255, 0, 0, 0.8), /* Red glow */
+                0 0 20px rgba(255, 0, 0, 0.6); /* Larger red glow */
+        }
+        .review {
+    text-align: center; /* Center-align text */
+    color: #ffffff; /* Change text color to white */
+    margin-bottom: 20px; /* Add some space between reviews */
+}
+
+.review img, .review video {
+    display: block; /* Make images and videos block elements */
+    margin: 0 auto; /* Center-align them */
+    max-width: 90%; /* Ensure they are responsive and take up to 90% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+    </style>
+</head>
+    <body>
+        <video autoplay muted loop id="bgvid">
+            <source src="bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <header>
+            <h1>𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘</h1>
+            <nav>
+                <ul>
+                    <li><a href="Project-2.html">Home</a></li>
+                    <li><a href="Topic2.html">Topics</a></li>
+                    <li><a href="Member2.html">Members</a></li>
+                    <li><a href="About2.html">About</a></li>
+                    <li><a href="Contact2.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <span class="welcome-message">Welcome <?php echo htmlspecialchars($username); ?></span>
+                <button onclick="window.location.href='logout.php'">Log Out</button> <!-- Log Out button -->
+            </div>
+        </header>
+    <section class="post">
+        <article>
+            <h3>Best RPG Games of 2024</h3>
+            <p>Some of the Best RPG games released this year!</p>
+            <div class="featured-slider">
+                <div class="featured-slides">
+                    <div class="featured-slide">
+                        <img src="solo-leveling cv.jpg" alt="Trailer 1">
+                        <div class="fcaption">Solo Leveling Arise:</div>
+                    </div>
+                    <div class="featured-slide">
+                        <img src="blackmyth cv.webp" alt="Trailer 2">
+                        <div class="fcaption">Black Myth Wukong:</div>
+                    </div>
+                    <div class="featured-slide">
+                        <img src="mobile legends cv.jpg" alt="Trailer 4">
+                        <div class="fcaption1">Mobile Legends:</div>
+                    </div>
+                    <div class="featured-slide">
+                        <img src="Final Fantasy cv.jpeg" alt="Trailer 3">
+                        <div class="fcaption">Final Fantasy:</div>
+                    </div>   
+                </div>
+            </div>
+        </article>
+</section>
+<article>
+    <div class="container">
+        <h1 class="title">Solo Leveling: ARISE</h1>
+        <p class="intro">"Solo Leveling: ARISE" is an action RPG that captures the essence of the beloved manhwa, delivering a visually stunning experience that fans will appreciate. The game features a blend of cinematic animations and visual-novel style storytelling, immersing players in its rich narrative.</p>
+        <p>While the graphics are impressive, the gameplay mechanics shine through with a variety of character classes and abilities that allow for strategic combat. Players can engage in thrilling battles against formidable monsters, utilizing a unique leveling system that mirrors the original story's progression.</p>
+        <p>The recent update introduced a new character, Meilin Fisher, who adds depth to the roster with her water manipulation skills and healing abilities, enhancing team dynamics. The game also offers challenging raid dungeons, such as the Workshop of Brilliant Light, where players must employ various strategies to defeat powerful bosses.</p>
+        <p>Players can customize their characters extensively, choosing from a range of outfits, weapons, and skills to suit their playstyle. This level of customization allows for a personalized gaming experience, where players can create a character that truly reflects their individuality. The combat system is intuitive yet deep, allowing players to chain together combos and unleash devastating special moves on their enemies.</p>
+        <p>The game also includes a robust crafting system, enabling players to gather materials from the environment and create powerful gear. This adds an additional layer of strategy, as players must decide which items to craft and equip based on their preferred playstyle. As players progress, they can unlock new abilities and enhance their skills, making each encounter feel fresh and exciting.</p>
+        <p>Multiplayer features allow players to team up with friends or join forces with others online to tackle tougher challenges. Cooperative gameplay encourages teamwork, as players must coordinate their abilities and strategies to succeed in difficult missions. The social aspect of the game fosters a sense of community among players, who can share tips, strategies, and experiences.</p>
+        <p>Regular updates and events keep the game dynamic, introducing new content that expands the lore and gameplay. Seasonal events often feature exclusive rewards, encouraging players to log in and participate. The developers actively engage with the community, taking feedback into account to improve the game and address player concerns.</p>
+        <p>The lore of "Solo Leveling: ARISE" is rich and immersive, drawing players into a world filled with powerful hunters, dangerous monsters, and epic quests. Each character has their own backstory, adding depth to the narrative and making players care about their journey. The game’s world is interconnected, with various factions and story arcs that intertwine, creating a cohesive and engaging experience.</p>
+        <p>As players progress through the game, they will encounter various challenges that test their skills and decision-making abilities. The difficulty levels can be adjusted, making it accessible for both casual gamers and hardcore players seeking a challenge. The game's AI is sophisticated, providing a formidable opponent that adapts to player strategies.</p>
+        <p>"Solo Leveling: ARISE" also features a captivating soundtrack that enhances the overall atmosphere of the game. Each piece of music is carefully crafted to match the tone of the scenes, whether it be intense battle music or serene melodies during exploration. Voice acting adds another layer of immersion, bringing characters to life and making the story more engaging.</p>
+        <p>The game has received praise for its accessibility, allowing players of all skill levels to enjoy the experience. Tutorials and guides are available to help newcomers learn the mechanics and get acclimated to the gameplay. The community is welcoming and supportive, with many players eager to help others succeed.   </p>
+        <p>With its captivating storyline, stunning visuals, and engaging gameplay, "Solo Leveling: ARISE" has quickly become a favorite among RPG enthusiasts. The game has carved out a niche in the gaming community, attracting both fans of the original manhwa and new players alike.</p>
+        <p>Many players have reported spending hours immersed in the game, drawn in by its compelling characters and rich lore. The sense of progression is satisfying, as players see their characters grow stronger and more capable over time. </p>
+        <p>As the game continues to evolve, players eagerly anticipate new content and features that will expand their adventures. The developers’ commitment to quality and player satisfaction is evident in the game's ongoing support and development.In conclusion, "Solo Leveling: ARISE" stands out as a remarkable entry in the action RPG genre, successfully blending captivating storytelling with engaging gameplay mechanics. The game's ability to immerse players in its richly developed world, filled with intricate lore and dynamic characters, sets it apart from many of its contemporaries..!</p>
+        <!-- Continue with the rest of your text in similar <p> tags -->
+    </div>
+    <article>
+        <div class="solo-leveling">
+            <div class="solo-levelings active">
+                <img src="solo-leveling cv.jpg" alt="Picture 1">
+                <div class="solo-caption">In-Game</div>
+            </div>
+            <div class="solo-levelings">
+                <img src="solo-levelingarise-preview.avif" alt="Picture 2">
+                <div class="solo-caption">In-Game</div>
+            </div>
+            <div class="solo-levelings">
+                <img src="solo leveling p.jpg" alt="Picture 3">
+                <div class="solo-caption">In-Game</div>
+            </div>
+            <div class="solo-levelings">
+                <img src="solo leveling p1.jpg" alt="Picture 4">
+                <div class="solo-caption">In-Game</div>
+            </div>
+            <div class="solo-levelings">
+                <img src="solo-leveling-arise-game.avif" alt="Picture 5">
+                <div class="solo-caption">In-Game</div>
+            </div>
+            <div class="solo-levelings">
+                <img src="chae-hae.avif" alt="Picture 6">
+                <div class="solo-caption">In-Game</div>
+                <!-- <div class="video-container">
+                    <video controls width="100%">
+                        <source src="Solo-leveing Jinwoo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="solo-caption">Solo-leveing Video</div>
+                </div> -->
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </article>
+    </div>
+</article>
+        <h2 class="share-title">Share Your Fav RPG Game This Year!</h2>
+        <div class="button-container">
+            <a href="Add your Review(RPG).html" class="share-button">Share!</a>
+        </div>
+    </body>
+</html>
+<section class="reviews">
+    <h2 style="color: #ffffff;    text-align: center;    text-shadow: 3px 3px 6px #e104f5;">Saved Game Reviews
+    <div id="reviews-container"></div> <!-- Container for reviews -->
+</section>
+<footer>
+    <text>&copy; 2024 𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘. All rights reserved.</text>&copy;
+</footer>  
+<script>
+    // Featured Slider
+    let currentFeaturedIndex = 0;
+    const featuredSlides = document.querySelectorAll('.featured-slide');
+
+    function showFeaturedSlide(index) {
+        featuredSlides.forEach((slide, i) => {
+            slide.style.display = (i === index) ? 'block' : 'none'; // Show current slide
+        });
+    }
+
+    function nextFeaturedSlide() {
+        currentFeaturedIndex = (currentFeaturedIndex + 1) % featuredSlides.length; // Loop back to first slide
+        showFeaturedSlide(currentFeaturedIndex);
+    }
+
+    // Initialize the first featured slide
+    showFeaturedSlide(currentFeaturedIndex);
+
+    // Change slide every 3 seconds for the featured slider
+    setInterval(nextFeaturedSlide, 3000);
+
+    // Responsive adjustments for featured slides
+    function adjustFeaturedSlideSize() {
+        featuredSlides.forEach(slide => {
+            slide.style.width = '100%'; // Full width
+            slide.style.height = 'auto'; // Maintain aspect ratio
+        });
+    }
+
+    // Call adjust function on window resize
+    window.addEventListener('resize', adjustFeaturedSlideSize);
+    adjustFeaturedSlideSize(); // Initial call
+
+    // Solo Leveling Slider
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.solo-levelings');
+    const videoContainer = document.querySelector('.video-container');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active'); // Hide all slides
+            if (i === index) {
+                slide.classList.add('active'); // Show the current slide
+            }
+        });
+
+        // Show the video if the last slide is active
+        if (index === slides.length - 1) {
+            videoContainer.classList.add('active'); // Show video
+        } else {
+            videoContainer.classList.remove('active'); // Hide video
+        }
+    }
+
+    function nextSlide() {
+        currentIndex++;
+        if (currentIndex >= slides.length) {
+            currentIndex = 0; // Loop back to the first slide
+        }
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1; // Loop back to the last slide
+        }
+        showSlide(currentIndex);
+    }
+
+    // Initialize the first slide
+    showSlide(currentIndex);
+
+    // Responsive adjustments for solo leveling slides
+    function adjustSlideSize() {
+        slides.forEach(slide => {
+            slide.style.width = '100%'; // Full width
+            slide.style.height = 'auto'; // Maintain aspect ratio
+        });
+        videoContainer.style.width = '100%'; // Full width for video
+        videoContainer.style.height = 'auto'; // Maintain aspect ratio for video
+    }
+
+    // Call adjust function on window resize
+    window.addEventListener('resize', adjustSlideSize);
+    adjustSlideSize(); // Initial call
+
+    // Touch support for solo leveling slides
+    let startX = 0;
+    let endX = 0;
+
+    slides.forEach(slide => {
+        slide.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX; // Get the starting touch position
+        });
+
+        slide.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX; // Get the current touch position
+        });
+
+        slide.addEventListener('touchend', () => {
+            if (startX > endX + 50) {
+                nextSlide(); // Swipe left to go to the next slide
+            } else if (startX < endX - 50) {
+                prevSlide(); // Swipe right to go to the previous slide
+            }
+        });
+    });
+</script>
+
+<!-- JS for the Review -->
+
+<script>
+    // Function to fetch and display reviews
+    function loadReviews() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'RPG GAME.php', true); // Make sure the path is correct
+
+        xhr.onload = function() {
+            if (this.status === 200) {
+                document.getElementById('reviews-container').innerHTML = this.responseText;
+            } else {
+                document.getElementById('reviews-container').innerHTML = "<p>Error loading reviews.</p>";
+            }
+        };
+
+        xhr.onerror = function() {
+            document.getElementById('reviews-container').innerHTML = "<p>Error loading reviews.</p>";
+        };
+        xhr.send(); // Send the request
+        }
+
+        // Load reviews when the page is loaded
+        window.onload = function() {
+            loadReviews(); // Call the function to load reviews
+        };
+    </script>

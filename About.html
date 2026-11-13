@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘- About</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-image: url(smh2.gif);
+            background-size: cover;
+            background-position: center;
+             */
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the entire area */
+            z-index: -1; /* Places the video behind other content */
+        }
+
+        header {
+            /* background: #000000; */
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+            border: solid purple;
+            border-radius: 5px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(100, 13, 122, 0.5);
+            border-radius: 0px;
+        }
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-buttons button {
+            background-color: rgba(100, 13, 122, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-buttons button:hover {
+            background-color: #000000;
+        }
+        .neon-text {
+            color: #fff;
+            font-size: 1.5em; /* Increased font size */
+            text-align: center;
+            text-shadow: 
+                0 0 5px #fff, 
+                0 0 10px #ff00ff, 
+                0 0 15px #ff00ff, 
+                0 0 20px #ff00ff, 
+                0 0 25px #ff00ff; /* Neon glow effect */
+            margin: 20px auto;
+            max-width: 800px; /* Limit the width for better readability */
+        }
+        .full-page {
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center items vertically */
+            align-items: center; /* Center items horizontally */
+            height: 100vh; /* Full height of the viewport */
+            text-align: center; /* Center text */
+        }
+        .hed {
+            color: white;
+            font-size: 2em; /* Adjust font size as needed */
+            text-align: center;
+            text-shadow: 
+                0 0 5px #ffffff, 
+                0 0 10px #00ffff, 
+                0 0 15px #00ffff, 
+                0 0 20px #00ffff, 
+                0 0 25px #00ffff; /* Neon glow effect in white and cyan */
+            margin: 20px 0; /* Add some margin for spacing */
+        }
+</style>
+</head>
+<body>
+    <video autoplay muted loop id="bgvid">
+        <source src="bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+        <h1>𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘</h1>
+        <nav>
+            <ul>
+                <li><a href="Project.html">Home</a></li>
+                <li><a href="Topic.html">Topics</a></li>
+                <li><a href="Member.html">Members</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button onclick="window.location.href='log-in.html'">Log In</button>
+            <button onclick="window.location.href='sign-up.html'">Sign Up</button>
+        </div>
+    </header>
+        <div class="full-page">
+            <h2 class="hed">About Us</h2>
+                <p class="neon-text">
+                    Welcome to 𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘, where passion meets innovation in the ever-evolving world of gaming! We are not just a community; we are a vibrant ecosystem of dedicated gamers, visionary developers, and enthusiastic creators who thrive on the sparks of creativity and the power of collaboration. Our mission is to delve deep into the endless possibilities of game design, share invaluable knowledge, and empower each other to break through the boundaries of what’s conceivable in the expansive gaming universe.
+                    At 𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘, we believe that every member, whether a seasoned pro with years of experience or a newcomer just embarking on their gaming journey, has a unique voice and perspective that enriches our collective experience. We invite you to join us in crafting unforgettable experiences, sharing epic adventures, and celebrating the artistry of gaming in all its forms.
+                    Together, we embark on a journey to create, inspire, and redefine the future of interactive entertainment. Our community hosts a variety of events, workshops, and discussions that encourage skill development, foster innovation, and ignite the flames of imagination. With a plethora of resources at your fingertips, including tutorials, game jams, and collaborative projects, you’ll find endless opportunities to learn and grow.
+                    We are committed to building an inclusive and supportive environment where everyone feels welcome and valued. Here, you can connect with like-minded individuals, forge lasting friendships, and collaborate on projects that challenge and inspire you. Let’s push the envelope of what’s possible, explore new genres, and experiment with groundbreaking technologies that can elevate our gaming experiences to new heights.
+                    Join us as we celebrate the thrill of gaming, the joy of creation, and the power of community. Together, let's shape the landscape of the gaming industry, one innovative idea at a time. Welcome aboard—let the adventure begin!
+                </p>
+        </div>
+    </body>
+</html>

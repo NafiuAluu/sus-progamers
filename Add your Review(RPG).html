@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Favorite RPG Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the entire area */
+            z-index: -1; /* Places the video behind other content */
+        }
+
+        header {
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+            border: solid purple;
+            border-radius: 5px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(100, 13, 122, 0.5);
+            border-radius: 0px;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #222;
+            color: white;
+        }
+        button {
+            background-color: rgba(100, 13, 122, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #000000;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="bgvid">
+        <source src="bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+        <h1>𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘</h1>
+        <nav>
+            <ul>
+                <li><a href="Project-2.html">Home</a></li>
+                <li><a href="Topic2.html">Topics</a></li>
+                <li><a href="Member2.html">Members</a></li>
+                <li><a href="About2.html">About</a></li>
+                <li><a href="Contact2.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Share Your Favorite RPG Games</h2>
+        <form id="gameForm" action="Add.php" method="POST" enctype="multipart/form-data">
+            <label for="gameName">Game Name:</label>
+            <input type="text" id="gameName" name="gameName" required>
+        
+            <label for="gameDescription">Description:</label>
+            <textarea id="gameDescription" name="gameDescription" rows="4" required></textarea>
+            
+            <label for="gameFiles">Attach Images or Videos:</label>
+            <input type="file" id="gameFiles" name="gameFiles[]" accept="image/*,video/*" multiple>
+            
+            <button type="submit">Share Game</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 𝕾𝖚𝖘 𝕻𝖗𝖔𝕲𝖆𝖒𝖊𝖗𝖘. All rights reserved.</p>
+    </footer>
+</body>
+</html>
